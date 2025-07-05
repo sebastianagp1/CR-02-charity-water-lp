@@ -24,6 +24,30 @@ Fonts:
 */
 
 /* Set up the main font and background color for the whole page */
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>charity: water</title>
+  <!-- 
+    We use "Avenir" as the main font. If it's not available, the browser will use "Georgia".
+    These fonts are set in the CSS below.
+  -->
+  <style>
+    /* Set the main font to Avenir. If not available, use Georgia. */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Avenir', Georgia, serif;
+    }
+
+    body {
+      background-color: #fff8ec;
+      color: #1e1e1e;
+      line-height: 1.6;
+    }
+
+    /* ...rest of your CSS remains the same... */
 body {
   background-color: #f4f8fb; /* Soft light blue for a fresh look */
   font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
@@ -45,7 +69,7 @@ section {
 .hero {
   position: relative; /* Needed for overlay */
   /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
+  background-image: url('https://cdn2.dropmarkusercontent.com/52043/88d810165c535504ffaf2305e96107ab43d5fe5c57bbaf39de4fe87214b88385/preview/Madagascar_2019_CG-3265.jpg?Expires=1751743287&Signature=M-PjXo5KexUbwOrHsCFY1xYGVpvYCmMIwYglQSDy2QqlEHkixURUPXlCWObLEViNvpW~AaZxI4DGeowG1y9JDO91aTspkL3Y2xUH3MXDsTocFbfb2i7X3r8krRFpl8z9QjHnNEI2tw3J-BLZy-bJA84lcmFvtmcfznzWeGuTTqwTZRi5GRF4IhWwJy9aSN0FzbXhSvdhMWpEEKwUdmOQtHAEgr1etzCVCZTJB1o1x4jLzCqyUUuI5N4keFJQZZoIyaa5LLEpsLa8cQVPJH9nppKlHWJsmMtPT8QWZaA69nL39rn3YhFZzf58k6GoMGkNmmx29I5PQ-wheg-AxRsPgQ__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ');
   background-size: cover;      /* Make the image cover the whole area */
   background-position: center; /* Center the image */
   background-repeat: no-repeat;

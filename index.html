@@ -1,47 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>charity: water</title>
+  <!-- 
+    Proxima Nova is not a free Google Font, 
+    but you can use a similar free font like 'Montserrat' for learning.
+    If you have Proxima Nova, you would use @font-face or a web font service.
+    For now, we'll use Montserrat as a stand-in for Proxima Nova.
+  -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Set the main font to Montserrat (as a stand-in for Proxima Nova) */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+
+    body {
+      background-color: #fff8ec;
+      color: #1e1e1e;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #fff8ec;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    .btn-yellow {
+      background-color: #ffd000;
+      color: #1e1e1e;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-yellow:hover {
+      background-color: #f2b100;
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      background-color: white;
+    }
+
+    .hero-text {
+      flex: 1;
+      background-color: #003b71;
+      color: white;
+      padding: 40px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-text strong {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    .hero-message {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #fff;
+      border: 2px solid #ffd000;
+      padding: 10px;
+      border-radius: 12px;
+      margin-top: 30px;
+      max-width: fit-content;
+    }
+
+    .hero-message input {
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      width: 200px;
+      background: #f2f2f2;
+      color: #aaa;
+    }
+
+    /* 
+      Remove the background image placeholder and use an actual image tag instead.
+      We'll add an <img> inside .hero-image below.
+    */
+    .hero-image {
+      flex: 1;
+      /* Remove the background image line below */
+      /* background: url('https://via.placeholder.com/600x400') no-repeat center/cover; */
+      position: relative;
+      min-height: 400px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0 0 0 40px;
+      /* Add a border radius for style */
+    }
+
+    .donate-box {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: #fff8ec;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 260px;
+    }
+
+    .donate-box h3 {
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    .amounts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .amounts button {
+      flex: 1 1 45%;
+      padding: 10px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      background: #d9d9d9;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .amounts button.selected,
+    .amounts button:hover {
+      background-color: #ffd000;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+      }
+
+      .hero-image {
+        min-height: 300px;
+      }
+
+      .donate-box {
+        position: static;
+        margin: 20px;
+      }
+
+      .hero-message {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: none;
+      }
+
+      .hero-message input {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <header>
+    <!-- 
+      Logo image for the header.
+      We use a smaller height and add CSS to crop extra white space.
+      The "object-fit: contain" and "object-position: left center" help show just the logo text.
+      The "overflow: hidden" on the parent keeps the image from showing extra space.
+    -->
+    <div style="height: 120px; width: 400px; overflow: hidden; display: flex; align-items: center;">
+      <img 
+        src="img/charitywater_logo_horizontal_BlackText.png" 
+        alt="charity: water logo" 
+        style="height: 300%; width: auto; object-fit: contain; object-position: left center; display: block;"
+      >
+    </div>
+    <button class="btn-yellow">Dive In 💦</button>
+  </header>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Change the World, One Drop at a Time</h1>
+      <strong>Clean water saves lives. You make it happen. 100% of your donation funds projects you can actually track.</strong>
+      <p>
+        Charity: Water makes it fun and easy for young changemakers to make a real impact by funding clean water projects that transform lives. With a playful voice, transparent giving, and global reach, we turn everyday generosity into lasting change.
+      </p>
+      <div class="hero-message">
+        <input type="text" placeholder="HELLO IT'S ALEX" disabled>
+        <button class="btn-yellow">Dive In 💦</button>
+      </div>
+    </div>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+    <div class="hero-image">
+      <!-- 
+        Replace the placeholder with a real image.
+        You can use a real photo from charity: water or a free stock photo.
+        Example below uses a real water-related image from Unsplash.
+      -->
+      <img src="https://cdn2.dropmarkusercontent.com/52043/88d810165c535504ffaf2305e96107ab43d5fe5c57bbaf39de4fe87214b88385/preview/Madagascar_2019_CG-3265.jpg?Expires=1751743287&Signature=M-PjXo5KexUbwOrHsCFY1xYGVpvYCmMIwYglQSDy2QqlEHkixURUPXlCWObLEViNvpW~AaZxI4DGeowG1y9JDO91aTspkL3Y2xUH3MXDsTocFbfb2i7X3r8krRFpl8z9QjHnNEI2tw3J-BLZy-bJA84lcmFvtmcfznzWeGuTTqwTZRi5GRF4IhWwJy9aSN0FzbXhSvdhMWpEEKwUdmOQtHAEgr1etzCVCZTJB1o1x4jLzCqyUUuI5N4keFJQZZoIyaa5LLEpsLa8cQVPJH9nppKlHWJsmMtPT8QWZaA69nL39rn3YhFZzf58k6GoMGkNmmx29I5PQ-wheg-AxRsPgQ__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ" alt="Clean water project photo">
+      <div class="donate-box">
+        <h3>Choose an Amount to Give Per Month</h3>
+        <div class="amounts">
+          <button>$10usd/mo</button>
+          <button>$20usd/mo</button>
+          <button class="selected">$40usd/mo</button>
+          <button>$100usd/mo</button>
+          <button>Other Amount</button>
         </div>
-    </section>
-
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+        <button class="btn-yellow">JOIN TODAY</button>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
